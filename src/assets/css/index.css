@@ -1,0 +1,19 @@
+body{
+    background: url('https://i.pinimg.com/originals/69/7c/ed/697cede3aecb9677a88fb62760207926.jpg');
+}
+fieldset{
+    border: 2px solid grey;
+    border-radius: 3px;
+    padding: 20px;
+    color: white;
+    background: url('https://wallpapercave.com/wp/wp3444086.jpg');
+    background-size: contain;
+}
+legend{
+    width: auto;
+    font-weight: 700;
+    font-size: 30px;
+}
+h1, h2{
+    color: white;
+}
