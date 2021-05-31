@@ -1,14 +1,20 @@
-require('dotenv').config();
-import mysql from 'mysql2';
+const {Client} = require('pg');
 
-let connection = mysql.createConnection( {
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD
-});
+const connection = 'postgressql://postgres:root@localhost:5432/logreg'
 
-connection.connect(()=>{
-    console.log('DATABASE CONNECTED AT LAST! THANK YOU LORD! ♥')
+const client = new Client({
+    host: 'localhost',
+    port: 5432,
+    user: 'postgres',
+    password: 'root',
+    database:  'logreg'
 })
-module.exports = connection;
+
+client.connect()
+
+client.query('SELECT * FROM users', (err,res)=>{
+    if(!err){
+        console.log(res.rows);
+    }
+    client.end()
+})
